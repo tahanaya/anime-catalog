@@ -1,0 +1,242 @@
+/* AnimeList.css */
+
+/* 1) LOADING STATE */
+
+.anime-list-loading-wrapper {
+    /* min-h-screen + flex center */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .anime-list-loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .anime-list-loader {
+    /* Replaces "animate-spin" */
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid #6b46c1; /* Purple border */
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .anime-list-loading-text {
+    color: #4b5563; /* ~Tailwind text-gray-600 */
+    font-weight: 500;
+  }
+  
+  /* 2) ERROR STATE */
+  
+  .anime-list-error-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .anime-list-error-box {
+    background-color: #fef2f2; /* ~Tailwind bg-red-50 */
+    padding: 1.5rem;           /* ~Tailwind p-6 */
+    border-radius: 0.5rem;     /* ~Tailwind rounded-lg */
+    max-width: 28rem;          /* ~Tailwind max-w-md */
+    text-align: center;
+  }
+  
+  .anime-list-error-icon {
+    font-size: 2rem;  /* ~Tailwind text-4xl */
+    color: #b91c1c;   /* ~Tailwind text-red-600 */
+    margin-bottom: 1rem; /* ~Tailwind mb-4 */
+  }
+  
+  .anime-list-error-title {
+    color: #9b1c1c;   /* ~Tailwind text-red-800 */
+    font-weight: 600; /* ~Tailwind font-semibold */
+    margin-bottom: 0.5rem;
+  }
+  
+  .anime-list-error-message {
+    color: #c53030; /* ~Tailwind text-red-700 */
+  }
+  
+  /* 3) MAIN CONTENT / GRID */
+  
+  .anime-list-main {
+    /* This top padding ensures content isn't hidden behind a fixed header */
+    padding-top: 80px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    max-width: 1280px; /* ~Tailwind max-w-7xl */
+    margin: 0 auto;
+  }
+  
+  .anime-list-grid {
+    /* Replaces "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem; /* ~Tailwind gap-6 = 24px */
+  }
+  
+  /* 4) MODAL STYLES */
+  
+  .anime-list-modal-backdrop {
+    /* Replaces "fixed inset-0 bg-black z-50 flex items-center justify-center" */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .anime-list-modal {
+    background-color: #fff;
+    border-radius: 0.75rem; /* ~Tailwind rounded-xl */
+    max-width: 700px;      /* ~Tailwind max-w-2xl => 672px, here ~700px */
+    width: 100%;
+    max-height: 90vh;      /* ~Tailwind max-h-[90vh] */
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Modal Image Container */
+  .anime-list-modal-image-container {
+    position: relative;
+    width: 100%;
+    height: 16rem; /* ~Tailwind h-64 => 256px */
+    overflow: hidden;
+  }
+  
+  .anime-list-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ~Tailwind object-cover */
+  }
+  
+  /* Close Button */
+  .anime-list-modal-close-button {
+    position: absolute;
+    top: 1rem;     /* ~Tailwind top-4 => 16px */
+    right: 1rem;   /* ~Tailwind right-4 => 16px */
+    background-color: #fff;
+    border: none;
+    border-radius: 9999px; /* fully rounded */
+    padding: 0.5rem;       /* ~Tailwind p-2 */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .anime-list-modal-close-button:hover {
+    background-color: #f8f8f8;
+  }
+  
+  /* Modal Content */
+  .anime-list-modal-content {
+    padding: 1.5rem; /* ~Tailwind p-6 => 24px */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between items */
+  }
+  
+  .anime-list-modal-title {
+    font-size: 1.875rem; /* ~Tailwind text-3xl => 30px */
+    font-weight: bold;
+    color: #111827;      /* ~Tailwind text-gray-900 */
+  }
+  
+  .anime-list-modal-subtitle {
+    font-size: 0.875rem; /* ~Tailwind text-sm => 14px */
+    color: #6b7280;      /* ~Tailwind text-gray-500 */
+  }
+  
+  /* Tags container for Score/Year/Rating */
+  .anime-list-modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* ~Tailwind gap-2 => 8px */
+  }
+  
+  /* Single Tag's base styling */
+  .modal-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px; 
+    font-size: 0.875rem; 
+    display: inline-block;
+  }
+  
+  /* Tag variations */
+  .modal-tag-score {
+    background-color: #e9d8fd; /* Light purple */
+    color: #6b46c1;           /* Purple text */
+  }
+  
+  .modal-tag-year {
+    background-color: #ebf8ff; /* Light blue */
+    color: #1e40af;           /* Dark blue text */
+  }
+  
+  .modal-tag-rating {
+    background-color: #c6f6d5; /* Light green */
+    color: #2f855a;           /* Green text */
+  }
+  
+  /* Synopsis section */
+  .anime-list-modal-synopsis-title {
+    font-size: 1.125rem; /* ~Tailwind text-lg => 18px */
+    font-weight: 600;    /* ~Tailwind font-semibold */
+    margin-bottom: 0.5rem;
+  }
+  
+  .anime-list-modal-synopsis p {
+    color: #4b5563;       /* ~Tailwind text-gray-600 */
+    line-height: 1.5; 
+  }
+  
+  /* Footer with Price + Add to Cart */
+  .anime-list-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .anime-list-modal-price {
+    font-size: 1.125rem; /* ~Tailwind text-lg => 18px */
+    font-weight: 600;    /* ~Tailwind font-semibold */
+    color: #111827;      /* ~Tailwind text-gray-900 */
+  }
+  
+  .anime-list-modal-cart-button {
+    background-color: #3b82f6; /* ~Tailwind bg-blue-600 */
+    color: #fff;
+    padding: 0.5rem 1.25rem;   /* ~Tailwind py-2 px-5 */
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .anime-list-modal-cart-button:hover {
+    background-color: #2563eb; /* ~Tailwind hover:bg-blue-500 */
+  }
+  

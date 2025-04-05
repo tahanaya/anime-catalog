@@ -1,0 +1,112 @@
+/* Base styles for the header */
+.header {
+    background-color: #14161a; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  
+    /* Keep it fixed at the top */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+  
+    /* Enough vertical space to fit the logo */
+    height: 80px;
+  
+    /* Flex layout to center items horizontally/vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* Smooth background transition if you change it on scroll */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Navigation container to limit content width */
+  .nav-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo styles */
+  .logo {
+    font-size: 2rem; 
+    color: #61dafb;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+    /* Remove the negative margins to keep it properly in view */
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Hover effect for the logo */
+  .logo:hover {
+    color: #21a1f1;
+  }
+  
+  /* Small highlight symbol near the logo text */
+  .highlight {
+    margin-left: 0.5rem;
+  }
+  
+  /* Extra example styles for navigation links if you add them */
+  .nav-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-button {
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #21a1f1;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.5rem;
+    }
+  
+    .nav-button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+  
+    .nav-links {
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      flex-direction: column; 
+      height: auto; /* Let the header expand for smaller screens */
+      padding: 15px;
+    }
+  
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+  
