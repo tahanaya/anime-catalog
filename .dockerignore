@@ -1,0 +1,22 @@
+# Ignore node_modules to avoid copying them into the Docker image
+node_modules
+
+# Ignore build artifacts
+build/
+
+# Ignore local development files
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore any environment variable files if you're not using them in Docker
+.env
+
+# Optionally, ignore any other files that aren't necessary in the image

@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    # The key part: watch configuration
+    develop:
+      watch:
+        # 1) Sync changes from ./src to /app/src inside the container 
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+            - dist/
+
+        # 2) Rebuild the image/container if package.json changes
+        - action: rebuild
+          path: package.json
+        # Alternatively, you could use sync+restart for certain config files, etc.
+
+    # It's critical your service is built from local source (build attribute)
+    # or Compose Watch won't track the files.
+

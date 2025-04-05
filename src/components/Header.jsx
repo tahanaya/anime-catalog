@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="nav-container">
         <div className="nav-content">
           <div className="logo">
-            Anime Catalog
+          Anime Cataloge v1
             <span className="highlight">⚡</span>
           </div>
           
