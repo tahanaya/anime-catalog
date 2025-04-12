@@ -35,7 +35,7 @@ const AnimeList = () => {
       <div className="anime-list-loading-wrapper">
         <div className="anime-list-loading-container">
           <div className="anime-list-loader"></div>
-          <p className="anime-list-loading-text">Loading Anime Magic...</p>
+          <p className="anime-list-loading-text">Loading A7ssen Anime...</p>
         </div>
       </div>
     );
